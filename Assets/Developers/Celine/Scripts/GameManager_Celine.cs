@@ -6,6 +6,7 @@ public class GameManager_Celine : MonoBehaviour
 {
     public float timer = 0f;
     public float timeBetweenSpawns;
+    public float scrollSpeed = -5f;
 
     public GameObject randomObject;
     public GameObject randomObject1;
@@ -15,8 +16,8 @@ public class GameManager_Celine : MonoBehaviour
     public int Obstacles;
     public int Waves = 0;
 
-    public Transform spawnY;
-    public Transform spawnY2;
+    public Transform spawn;
+    public Transform spawn2;
 
     public static GameManager_Celine instance;
 
@@ -28,13 +29,11 @@ public class GameManager_Celine : MonoBehaviour
 
     private void Spawn()
     {
-       
-
         //If all the obstacles are not spawned yet, spawn that amount of obstacles
         for (int i = 0; i < Obstacles; i++)
         {   
             //Take 2 tranforms and make a random range out of that
-            Vector3 randomPos = new Vector3(spawnY.position.x, (Random.Range(spawnY.position.y, spawnY2.position.y)));
+            Vector3 randomPos = new Vector3(Random.Range(spawn.position.x, spawn2.position.x), (Random.Range(spawn.position.y, spawn2.position.y)));
             
             Quaternion spawnRotation = Quaternion.Euler(0, 0, 180);
 
