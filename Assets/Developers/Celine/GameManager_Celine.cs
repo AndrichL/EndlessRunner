@@ -9,7 +9,8 @@ public class GameManager_Celine : MonoBehaviour
     public GameObject randomObject;
     public GameObject spawnPosObject;
     public int Obstacles;
-    public Transform[] spawns;
+    public Transform spawnY;
+    public Transform spawnY2;
 
     // Start is called before the first frame update
     void Start()
@@ -19,21 +20,23 @@ public class GameManager_Celine : MonoBehaviour
 
     private void Spawn()
     {
-        //Make spawnpoints
-        List<Transform> freeSpawnPoints = new List<Transform>(spawns);
+       
 
         //If all the obstacles are not spawned yet, spawn that amount of obstacles
         for (int i = 0; i < Obstacles; i++)
-        {
-            if (freeSpawnPoints.Count < 0)
+        {   
+
+            float randomnum = Random.Range(1f, 20f);
+            Vector3 randomPos = new Vector3(spawnY.position.x, (Random.Range(spawnY.position.y, spawnY2.position.y)));
+            
+            Quaternion spawnRotation = Quaternion.Euler(0, 0, 180);
+
+            if (randomnum < 10)
             {
-                return;
+                Instantiate(randomObject, randomPos, spawnRotation);
             }
-            //Use spanwpoints to spawn Obstacles
-            int index = Random.Range(0, freeSpawnPoints.Count);
-            Transform pos = freeSpawnPoints[index];
-            freeSpawnPoints.RemoveAt(index);
-            Instantiate(randomObject, pos.position, pos.rotation);
+        
+
         }
     }
 
