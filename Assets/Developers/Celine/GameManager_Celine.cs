@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager_Celine : MonoBehaviour
 {
     public float timer = 0f;
+    public float timeBetweenSpawns;
 
     public GameObject randomObject;
     public GameObject spawnPosObject;
@@ -46,7 +47,7 @@ public class GameManager_Celine : MonoBehaviour
     {
         timer += 1f * Time.deltaTime;
 
-        if (timer >= 5)
+        if (timer >= timeBetweenSpawns)
         {
             timer = 0;
             Spawn();

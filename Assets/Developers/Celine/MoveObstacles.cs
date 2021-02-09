@@ -17,14 +17,17 @@ public class MoveObstacles : MonoBehaviour
     void Update()
     {
 
-        if (GameManager_Celine.instance.Waves < 4)
+        if (GameManager_Celine.instance.Waves <= 4)
         {
+            GameManager_Celine.instance.timeBetweenSpawns = 5f;
             speed = 6;
         }
-        else if (GameManager_Celine.instance.Waves > 5)
+        else if (GameManager_Celine.instance.Waves > 4)
         {
+            GameManager_Celine.instance.timeBetweenSpawns = 1f;
             speed = 12;
         }
+       
 
 
         Vector3 move = new Vector3(-4f, 0);
