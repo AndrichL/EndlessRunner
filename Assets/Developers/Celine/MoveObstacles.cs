@@ -16,7 +16,7 @@ public class MoveObstacles : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        speed = Random.Range(1, 10);
+        speed = Random.Range(1, 20);
 
         Vector3 move = new Vector3(-4f, 0);
         transform.position += move * speed * Time.deltaTime;

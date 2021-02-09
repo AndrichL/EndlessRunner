@@ -24,7 +24,7 @@ public class Moving : MonoBehaviour
         if (other.tag == "Obstacles")
         {
             Destroy(gameObject);
-            Time.timeScale = 0f;
+            DeathScreen.instance.Death();
         }
     }
 }

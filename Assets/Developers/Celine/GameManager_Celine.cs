@@ -19,14 +19,17 @@ public class GameManager_Celine : MonoBehaviour
 
     private void Spawn()
     {
+        //Make spawnpoints
         List<Transform> freeSpawnPoints = new List<Transform>(spawns);
 
+        //If all the obstacles are not spawned yet, spawn that amount of obstacles
         for (int i = 0; i < Obstacles; i++)
         {
             if (freeSpawnPoints.Count < 0)
             {
                 return;
             }
+            //Use spanwpoints to spawn Obstacles
             int index = Random.Range(0, freeSpawnPoints.Count);
             Transform pos = freeSpawnPoints[index];
             freeSpawnPoints.RemoveAt(index);
