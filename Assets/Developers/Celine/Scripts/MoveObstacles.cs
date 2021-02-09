@@ -34,9 +34,10 @@ public class MoveObstacles : MonoBehaviour
         transform.position += move * speed * Time.deltaTime;
     }
 
-    private void OnTriggerEnter(Collider other)
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.tag == "Death")
+        if (collision.tag == "Death")
         {
             Destroy(gameObject);
             ScoreManager_Celine.instance.AddScore();

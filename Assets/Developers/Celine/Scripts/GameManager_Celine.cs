@@ -8,9 +8,13 @@ public class GameManager_Celine : MonoBehaviour
     public float timeBetweenSpawns;
 
     public GameObject randomObject;
-    public GameObject spawnPosObject;
+    public GameObject randomObject1;
+    public GameObject randomObject2;
+    public GameObject randomObject3;
+
     public int Obstacles;
     public int Waves = 0;
+
     public Transform spawnY;
     public Transform spawnY2;
 
@@ -34,10 +38,17 @@ public class GameManager_Celine : MonoBehaviour
             
             Quaternion spawnRotation = Quaternion.Euler(0, 0, 180);
 
-            //spawn the obstacles
-            Instantiate(randomObject, randomPos, spawnRotation);
+            int randomNum = Random.Range(1, 4);
 
-            
+            //spawn the obstacles
+            if(randomNum == 1)
+                Instantiate(randomObject, randomPos, spawnRotation);
+            if(randomNum == 2)
+                Instantiate(randomObject1, randomPos, spawnRotation);
+            if (randomNum == 3)
+                Instantiate(randomObject2, randomPos, spawnRotation);
+            if (randomNum == 4)
+                Instantiate(randomObject3, randomPos, spawnRotation);
         }
         Waves++;
     }
