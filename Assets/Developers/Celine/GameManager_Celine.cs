@@ -9,13 +9,16 @@ public class GameManager_Celine : MonoBehaviour
     public GameObject randomObject;
     public GameObject spawnPosObject;
     public int Obstacles;
+    public int Waves = 0;
     public Transform spawnY;
     public Transform spawnY2;
+
+    public static GameManager_Celine instance;
 
     // Start is called before the first frame update
     void Start()
     {
-       
+        instance = this;
     }
 
     private void Spawn()
@@ -32,7 +35,10 @@ public class GameManager_Celine : MonoBehaviour
 
             //spawn the obstacles
             Instantiate(randomObject, randomPos, spawnRotation);
+
+            
         }
+        Waves++;
     }
 
     // Update is called once per frame

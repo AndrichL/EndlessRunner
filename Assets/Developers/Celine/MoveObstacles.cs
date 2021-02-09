@@ -16,7 +16,16 @@ public class MoveObstacles : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        speed = Random.Range(1, 20);
+
+        if (GameManager_Celine.instance.Waves < 4)
+        {
+            speed = 6;
+        }
+        else if (GameManager_Celine.instance.Waves > 5)
+        {
+            speed = 12;
+        }
+
 
         Vector3 move = new Vector3(-4f, 0);
         transform.position += move * speed * Time.deltaTime;
