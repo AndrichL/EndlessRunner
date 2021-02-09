@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class MoveObstacles : MonoBehaviour
 {
+
+    public int speed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,8 +16,18 @@ public class MoveObstacles : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        speed = Random.Range(1, 10);
+
         Vector3 move = new Vector3(-4f, 0);
-        transform.position += move * 6f * Time.deltaTime;
+        transform.position += move * speed * Time.deltaTime;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Death")
+        {
+            Destroy(gameObject);
+        }
     }
 
 }
