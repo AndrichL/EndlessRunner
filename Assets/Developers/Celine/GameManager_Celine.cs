@@ -25,26 +25,19 @@ public class GameManager_Celine : MonoBehaviour
         //If all the obstacles are not spawned yet, spawn that amount of obstacles
         for (int i = 0; i < Obstacles; i++)
         {   
-
-            float randomnum = Random.Range(1f, 20f);
+            //Take 2 tranforms and make a random range out of that
             Vector3 randomPos = new Vector3(spawnY.position.x, (Random.Range(spawnY.position.y, spawnY2.position.y)));
             
             Quaternion spawnRotation = Quaternion.Euler(0, 0, 180);
 
-            if (randomnum < 10)
-            {
-                Instantiate(randomObject, randomPos, spawnRotation);
-            }
-        
-
+            //spawn the obstacles
+            Instantiate(randomObject, randomPos, spawnRotation);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-      
-
         timer += 1f * Time.deltaTime;
 
         if (timer >= 5)
@@ -52,7 +45,5 @@ public class GameManager_Celine : MonoBehaviour
             timer = 0;
             Spawn();
         }
-
-        
     }
 }

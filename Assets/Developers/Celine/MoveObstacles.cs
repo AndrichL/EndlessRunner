@@ -27,7 +27,9 @@ public class MoveObstacles : MonoBehaviour
         if (other.tag == "Death")
         {
             Destroy(gameObject);
+            ScoreManager_Celine.instance.AddScore();
         }
+
     }
 
 }

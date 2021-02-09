@@ -14,7 +14,7 @@ public class Moving : MonoBehaviour
     void Update()
     {
         var move = new Vector3(0, Input.GetAxis("Vertical"), 0);
-        transform.position += move * 3f * Time.deltaTime;
+        transform.position += move * 8f * Time.deltaTime;
 
        
     }
