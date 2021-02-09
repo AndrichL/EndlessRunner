@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class Moving : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int speed;
 
     // Update is called once per frame
     void Update()
     {
         var move = new Vector3(0, Input.GetAxis("Vertical"), 0);
-        transform.position += move * 8f * Time.deltaTime;
+        transform.position += move * speed * Time.deltaTime;
 
        
     }

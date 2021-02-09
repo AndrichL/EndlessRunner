@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -101440008784296715}
   m_Layer: 0
   m_Name: planet4prefab
-  m_TagString: Untagged
+  m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
