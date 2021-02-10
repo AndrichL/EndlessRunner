@@ -16,7 +16,7 @@ public class MoveObstacles : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //Spawn/speed changes 
         if (GameManager_Celine.instance.Waves <= 4)
         {
             GameManager_Celine.instance.timeBetweenSpawns = 5f;
@@ -28,7 +28,7 @@ public class MoveObstacles : MonoBehaviour
             speed = 12;
         }
        
-        
+        //Move the obstacles to the right
         Vector3 move = new Vector3(-4f, 0);
         transform.position += move * speed * Time.deltaTime;
         rb2d.rotation += 1f;
@@ -37,6 +37,7 @@ public class MoveObstacles : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //If they move into the death bordor, the obstacle gets deleted
         if (collision.tag == "Death")
         {
             Destroy(gameObject);
