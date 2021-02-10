@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -3846693424003617119}
   - component: {fileID: -596313286814971276}
   - component: {fileID: -7291321121553684095}
+  - component: {fileID: 3331361800380756301}
   m_Layer: 0
   m_Name: plaet2prefab
   m_TagString: Obstacles
@@ -135,3 +136,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+--- !u!114 &3331361800380756301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8164394339635861294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2edb18104721b734e9a4c8e839f925a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

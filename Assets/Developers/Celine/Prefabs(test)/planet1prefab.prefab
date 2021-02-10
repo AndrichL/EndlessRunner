@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -3489881190962969456}
   - component: {fileID: 6413699747849068179}
   - component: {fileID: 2129584770005928480}
+  - component: {fileID: 3021129883437501957}
   m_Layer: 0
   m_Name: planet1prefab
   m_TagString: Obstacles
@@ -135,3 +136,15 @@ CircleCollider2D:
   m_Offset: {x: -0.061835766, y: 0.020611525}
   serializedVersion: 2
   m_Radius: 1.1068196
+--- !u!114 &3021129883437501957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3058431997327169972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2edb18104721b734e9a4c8e839f925a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -40,7 +40,7 @@ public class MoveObstacles : MonoBehaviour
         //If they move into the death bordor, the obstacle gets deleted
         if (collision.tag == "Death")
         {
-            Destroy(gameObject);
+            SimplePool.PoolItem.ReturnToPoolOrDestroy(gameObject, GameManager_Celine.instance.useObjectPool = true);
             ScoreManager_Celine.instance.AddScore();
         }
 
