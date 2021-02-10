@@ -6,7 +6,6 @@ public class GameManager_Celine : MonoBehaviour
 {
     public float timer = 0f;
     public float timeBetweenSpawns;
-    public float scrollSpeed = -5f;
 
     public GameObject randomObject;
     public GameObject randomObject1;
@@ -18,6 +17,7 @@ public class GameManager_Celine : MonoBehaviour
 
     public Transform spawn;
     public Transform spawn2;
+
 
     public static GameManager_Celine instance;
 
@@ -62,5 +62,7 @@ public class GameManager_Celine : MonoBehaviour
             timer = 0;
             Spawn();
         }
+     
+       
     }
 }
