@@ -50,6 +50,8 @@ public class GameManager_Celine : MonoBehaviour
         obstaclePool4.pooledObject = randomObject4;
         obstaclePool4.autoExpand = true;
 
+
+
     }
 
     private void Spawn()
