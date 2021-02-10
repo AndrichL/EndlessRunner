@@ -38,7 +38,7 @@ public class StartScreen : MonoBehaviour
         }
         else
         {
-            Debug.LogError("No player chosen");
+            Instantiate(player1, playerSpawnPosition.transform.position, Quaternion.identity);
         }
 
         StartPanel.SetActive(false);

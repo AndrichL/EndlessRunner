@@ -41,7 +41,7 @@ public class MoveObstacles : MonoBehaviour
         if (collision.tag == "Death")
         {
             SimplePool.PoolItem.ReturnToPoolOrDestroy(gameObject, GameManager_Celine.instance.useObjectPool = true);
-            ScoreManager_Celine.instance.AddScore();
+            //ScoreManager_Celine.instance.AddScore();
         }
 
     }
