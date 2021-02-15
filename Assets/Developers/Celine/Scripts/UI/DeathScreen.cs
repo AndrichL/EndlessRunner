@@ -7,6 +7,7 @@ public class DeathScreen : MonoBehaviour
 {
     public static DeathScreen instance;
     public GameObject DeathPanel;
+    public GameObject SettingsPanel;
 
     // Start is called before the first frame update
     void Start()
@@ -31,5 +32,12 @@ public class DeathScreen : MonoBehaviour
     public void QuitButton()
     {
         Application.Quit();
+    }
+
+    public void Settings()
+    {
+        DeathPanel.SetActive(false);
+        SettingsPanel.SetActive(true);
+        SettingsMenu.instance.fromGameOver = true;
     }
 }

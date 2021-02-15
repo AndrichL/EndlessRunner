@@ -6,12 +6,12 @@ public class StartScreen : MonoBehaviour
 {
     public GameObject playerSpawnPosition;
     public GameObject StartPanel;
+    public GameObject SettingsPanel;
 
     [Header("PlayerOptions")]
     public GameObject player1;
     public GameObject player2;
-    public bool player1Chosen;
-    public bool player2Chosen;
+    public GameObject player3;
 
     // Start is called before the first frame update
     void Start()
@@ -28,13 +28,17 @@ public class StartScreen : MonoBehaviour
     public void StartGame()
     {
 
-        if (player1Chosen == true)
+        if (SettingsMenu.instance.player1Chosen == true)
         {
             Instantiate(player1, playerSpawnPosition.transform.position, Quaternion.identity);
         }
-        else if (player2Chosen == true)
+        else if (SettingsMenu.instance.player2Chosen == true)
         {
             Instantiate(player2, playerSpawnPosition.transform.position, Quaternion.identity);
+        }  
+        else if (SettingsMenu.instance.player3Chosen == true)
+        {
+            Instantiate(player3, playerSpawnPosition.transform.position, Quaternion.identity);
         }
         else
         {
@@ -49,23 +53,11 @@ public class StartScreen : MonoBehaviour
     {
         Application.Quit();
     }
-
   
-
-    public void ChoosePlayer1()
+    public void Settings()
     {
-        player1.SetActive(true);
-        player2.SetActive(false);
-        player1Chosen = true;
-        player2Chosen = false;
+        StartPanel.SetActive(false);
+        SettingsPanel.SetActive(true);
+        SettingsMenu.instance.fromStart = true;
     }
-
-    public void ChoosePlayer2()
-    {
-        player2.SetActive(true);
-        player1.SetActive(false);
-        player1Chosen = false;
-        player2Chosen = true;
-    }
-
 }
