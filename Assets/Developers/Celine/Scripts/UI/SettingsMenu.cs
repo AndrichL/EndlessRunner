@@ -20,6 +20,10 @@ public class SettingsMenu : MonoBehaviour
     public bool fromGameOver;
     public bool fromPause;
 
+    public GameObject player1button;
+    public GameObject player2button;
+    public GameObject player3button;
+
     private void Awake()
     {
         instance = this;
@@ -34,18 +38,24 @@ public class SettingsMenu : MonoBehaviour
     {
         if (fromStart)
         {
+            
             settingsmenu.SetActive(false);
             startmenu.SetActive(true);
+            fromStart = false;
         }
         else if (fromPause)
         {
+           
             settingsmenu.SetActive(false);
             pausemenu.SetActive(true);
+            fromPause = false;
         }
         else if (fromGameOver)
         {
+          
             settingsmenu.SetActive(false);
             gameOvermenu.SetActive(true);
+            fromGameOver = false;
         }
     }
 

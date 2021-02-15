@@ -38,5 +38,8 @@ public class PauseMenu : MonoBehaviour
         pausemenu.SetActive(false);
         settingsmenu.SetActive(true);
         SettingsMenu.instance.fromPause = true;
+        SettingsMenu.instance.player1button.SetActive(false);
+        SettingsMenu.instance.player2button.SetActive(false);
+        SettingsMenu.instance.player3button.SetActive(false);
     }
 }
