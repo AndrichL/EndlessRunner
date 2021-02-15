@@ -1098,7 +1098,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 18.335938, y: -251.85904}
+  m_AnchoredPosition: {x: 18, y: -251.85904}
   m_SizeDelta: {x: 299, y: 111}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &635895119
@@ -2140,14 +2140,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1517263294}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aba35fb3db9f9a44bae69e15c639e817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
   timeBetweenSpawns: 0
-  randomObject1: {fileID: 3058431997327169972, guid: 37990fb74dfd2424faa33bb6574e25e2, type: 3}
+  randomObject1: {fileID: 8155703367308388153, guid: 4a494acb535a65f47b5c9120a67b826b, type: 3}
   randomObject2: {fileID: 8164394339635861294, guid: 6ff48e91e2e2e504fb9caf54bb2850ec, type: 3}
   randomObject3: {fileID: 839272838218799339, guid: d177143ac5100954eb28507a109e185f, type: 3}
   randomObject4: {fileID: 5178679241298047524, guid: 98154c7d479e1a743819d12ace9b92d8, type: 3}
@@ -3105,6 +3105,14 @@ PrefabInstance:
     - target: {fileID: 5527552966981102006, guid: 8741e245d2be4a24cbfd43c528bd887e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6292968830909748431, guid: 8741e245d2be4a24cbfd43c528bd887e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6292968830909748431, guid: 8741e245d2be4a24cbfd43c528bd887e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -268
       objectReference: {fileID: 0}
     - target: {fileID: 6406643534986737944, guid: 8741e245d2be4a24cbfd43c528bd887e, type: 3}
       propertyPath: m_Navigation.m_Mode
