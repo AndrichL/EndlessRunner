@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SimplePool;
 
 public class GameManager_Celine : MonoBehaviour
 {
     public float timer = 0f;
     public float timeBetweenSpawns;
-    public float scrollSpeed = -5f;
 
-    public GameObject randomObject;
+
+    [Header("Obstacles")]
     public GameObject randomObject1;
     public GameObject randomObject2;
     public GameObject randomObject3;
+    public GameObject randomObject4;
+    public bool useObjectPool = true;
 
     public int Obstacles;
     public int Waves = 0;
@@ -19,12 +22,36 @@ public class GameManager_Celine : MonoBehaviour
     public Transform spawn;
     public Transform spawn2;
 
+    SimplePool.ObjectPool obstaclePool1;
+    SimplePool.ObjectPool obstaclePool2;
+    SimplePool.ObjectPool obstaclePool3;
+    SimplePool.ObjectPool obstaclePool4;
+
     public static GameManager_Celine instance;
 
     // Start is called before the first frame update
     void Start()
     {
         instance = this;
+
+        obstaclePool1 = gameObject.AddComponent<SimplePool.ObjectPool>() as ObjectPool;
+        obstaclePool1.pooledObject = randomObject1;
+        obstaclePool1.autoExpand = true;   
+        
+        obstaclePool2 = gameObject.AddComponent<SimplePool.ObjectPool>() as ObjectPool;
+        obstaclePool2.pooledObject = randomObject2;
+        obstaclePool2.autoExpand = true;   
+       
+        obstaclePool3 = gameObject.AddComponent<SimplePool.ObjectPool>() as ObjectPool;
+        obstaclePool3.pooledObject = randomObject3;
+        obstaclePool3.autoExpand = true;    
+        
+        obstaclePool4 = gameObject.AddComponent<SimplePool.ObjectPool>() as ObjectPool;
+        obstaclePool4.pooledObject = randomObject4;
+        obstaclePool4.autoExpand = true;
+
+
+
     }
 
     private void Spawn()
@@ -40,14 +67,14 @@ public class GameManager_Celine : MonoBehaviour
             int randomNum = Random.Range(1, 4);
 
             //spawn the obstacles
-            if(randomNum == 1)
-                Instantiate(randomObject, randomPos, spawnRotation);
+            if (randomNum == 1)
+                obstaclePool1.GetPooledObject(randomPos, spawnRotation);
             if(randomNum == 2)
-                Instantiate(randomObject1, randomPos, spawnRotation);
+                obstaclePool2.GetPooledObject(randomPos, spawnRotation);
             if (randomNum == 3)
-                Instantiate(randomObject2, randomPos, spawnRotation);
+                obstaclePool3.GetPooledObject(randomPos, spawnRotation);
             if (randomNum == 4)
-                Instantiate(randomObject3, randomPos, spawnRotation);
+                obstaclePool4.GetPooledObject(randomPos, spawnRotation);
         }
         Waves++;
     }
@@ -62,5 +89,7 @@ public class GameManager_Celine : MonoBehaviour
             timer = 0;
             Spawn();
         }
+     
+       
     }
 }

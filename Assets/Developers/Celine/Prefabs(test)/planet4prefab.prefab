@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1031190317298959024}
   - component: {fileID: -5067021378515793743}
   - component: {fileID: -101440008784296715}
+  - component: {fileID: 6219325828683532424}
   m_Layer: 0
   m_Name: planet4prefab
   m_TagString: Obstacles
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 738485dc8e47a424392c448f3ef74f5e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -118,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a504b98fe7abd84b89022b54f760a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 1
 --- !u!58 &-101440008784296715
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -132,6 +133,18 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.00000017881393, y: 0}
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 0.99689
+--- !u!114 &6219325828683532424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5178679241298047524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2edb18104721b734e9a4c8e839f925a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
