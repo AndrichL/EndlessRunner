@@ -79,3 +79,4 @@ Brainstorm/Temp/
 .idea/.idea.Brainstorm/.idea/riderModule.iml
 .idea/.idea.Brainstorm/.idea/vcs.xml
 .idea/.idea.Brainstorm/.idea/workspace.xml
+*.meta

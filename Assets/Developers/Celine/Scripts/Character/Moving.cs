@@ -25,4 +25,9 @@ public class Moving : MonoBehaviour
             DeathScreen.instance.Death();
         }
     }
+
+    public float GetSpeed()
+    {
+        return speed;
+    }
 }
