@@ -1,19 +1,30 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 namespace Andrich
 { 
     public class AudioManager : MonoBehaviour
     {
-        [SerializeField] private AudioMixerGroup m_Main;
+        [SerializeField] private Slider m_MasterVolumeSlider;
+        [SerializeField] private Toggle m_MusicToggle;
+        [SerializeField] private Toggle m_SFXToggle;
+
+        [SerializeField] private AudioMixerGroup m_Master;
         [SerializeField] private AudioMixerGroup m_Music;
         [SerializeField] private AudioMixerGroup m_SFX;
         [SerializeField] private Sound[] m_Sounds;
 
+        private string m_MasterKey = "Master";
+        private string m_MusicKey = "Music";
+        private string m_SFXKey = "SFX";
+
         public static AudioManager m_Instance { get; private set; }
+        private static bool m_FirstStart = true;
 
         [System.Serializable]
         public class Sound
@@ -35,6 +46,12 @@ namespace Andrich
 
         private void Awake()
         {
+            if(m_FirstStart)
+            {
+                m_Master.audioMixer.SetFloat(m_MasterKey, m_MasterVolumeSlider.maxValue);
+                m_FirstStart = false;
+            }
+
             if (m_Instance == null)
             {
                 m_Instance = this;
@@ -53,6 +70,34 @@ namespace Andrich
                 s.m_Source.outputAudioMixerGroup = s.m_AudioMixer;
             }
 
+            m_MusicToggle.onValueChanged.AddListener(delegate { SetToggle(m_MusicToggle, m_MusicToggle.isOn); });
+            m_SFXToggle.onValueChanged.AddListener(delegate { SetToggle(m_SFXToggle, m_SFXToggle.isOn); });
+        }
+
+        private void SetToggle(Toggle toggle, bool value)
+        {
+            if(toggle == m_MusicToggle)
+            {
+                if(toggle.isOn)
+                {
+                    m_Music.audioMixer.SetFloat(m_MusicKey, -80f);
+                }
+                else
+                {
+                    m_Music.audioMixer.SetFloat(m_MusicKey, 1f);
+                }
+            }
+            else if(toggle == m_SFXToggle)
+            {
+                if(toggle.isOn)
+                {
+                    m_SFX.audioMixer.SetFloat(m_SFXKey, -80f);
+                }
+                else
+                {
+                    m_SFX.audioMixer.SetFloat(m_SFXKey, 1f);
+                }
+            }
         }
 
         public void Play(string name)
@@ -95,7 +140,7 @@ namespace Andrich
             Sound s = Array.Find(m_Sounds, sound => sound.m_SoundName == name);
             if (s == null)
             {
-                Debug.LogWarning("pause sound: " + name + "is not found");
+                Debug.LogWarning("Pause sound: " + name + "is not found");
                 return;
             }
             else
@@ -118,19 +163,19 @@ namespace Andrich
             }
         }
 
-        public void SetMainVolume(float Volume)
+        public void SetMasterVolume(float value)
         {
-            m_Main.audioMixer.SetFloat("volume", Volume);
+            m_Master.audioMixer.SetFloat(m_MasterKey, value);
         }
 
-        public void SetMusicVolume(float Volume)
+        public void SetMusicVolume(float value)
         {
-            m_Music.audioMixer.SetFloat("volumeMusic", Volume);
+            m_Music.audioMixer.SetFloat(m_MusicKey, value);
         }
 
-        public void SetSFXVolume(float Volume)
+        public void SetSFXVolume(float value)
         {
-            m_SFX.audioMixer.SetFloat("volumeSFX", Volume);
+            m_SFX.audioMixer.SetFloat(m_SFXKey, value);
         }
     }
 }

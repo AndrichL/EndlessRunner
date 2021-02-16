@@ -17,6 +17,8 @@ public class StartScreen : MonoBehaviour
     void Start()
     {
         Time.timeScale = 0f;
+        Andrich.GameStateManager.m_Instance.SetGameState(Andrich.GameStateManager.GameState.mainMenu);
+        Andrich.AudioManager.m_Instance.Play("MainMenu");
     }
 
     // Update is called once per frame
@@ -34,12 +36,10 @@ public class StartScreen : MonoBehaviour
         if (SettingsMenu.instance.player2Chosen == true)
         {
             Instantiate(player2, playerSpawnPosition.transform.position, Quaternion.identity);
-
         }  
         else if (SettingsMenu.instance.player3Chosen == true)
         {
             Instantiate(player3, playerSpawnPosition.transform.position, Quaternion.identity);
-
         }
         else
         {
