@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -33,11 +34,14 @@ public class PauseMenu : MonoBehaviour
         Application.Quit();
     }
 
+    //If you go into settings from the pause menu, disable the character buttons
     public void Settingsmenu()
     {
         pausemenu.SetActive(false);
         settingsmenu.SetActive(true);
         SettingsMenu.instance.fromPause = true;
+        SettingsMenu.instance.settingsmenuFromPause.SetActive(true);
+        SettingsMenu.instance.settingsBG.SetActive(false);
         SettingsMenu.instance.player1button.SetActive(false);
         SettingsMenu.instance.player2button.SetActive(false);
         SettingsMenu.instance.player3button.SetActive(false);

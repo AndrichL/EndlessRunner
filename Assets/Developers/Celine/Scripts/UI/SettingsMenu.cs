@@ -8,6 +8,8 @@ public class SettingsMenu : MonoBehaviour
     public GameObject startmenu;
     public GameObject pausemenu;
     public GameObject gameOvermenu;
+    public GameObject settingsmenuFromPause;
+    public GameObject settingsBG;
 
     public static SettingsMenu instance;
 
@@ -36,9 +38,9 @@ public class SettingsMenu : MonoBehaviour
 
     public void Resume()
     {
+        //Remember from what screen you came, so you go back to that screen
         if (fromStart)
-        {
-            
+        {    
             settingsmenu.SetActive(false);
             startmenu.SetActive(true);
             fromStart = false;
@@ -59,6 +61,7 @@ public class SettingsMenu : MonoBehaviour
         }
     }
 
+    //choose the skin you want to use
     public void ChoosePlayer1()
     {
         player1Chosen = true;
