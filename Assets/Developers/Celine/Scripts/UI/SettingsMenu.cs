@@ -8,6 +8,8 @@ public class SettingsMenu : MonoBehaviour
     public GameObject startmenu;
     public GameObject pausemenu;
     public GameObject gameOvermenu;
+    public GameObject settingsmenuFromPause;
+    public GameObject settingsBG;
 
     public static SettingsMenu instance;
 
