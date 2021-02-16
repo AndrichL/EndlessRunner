@@ -33,6 +33,7 @@ public class PauseMenu : MonoBehaviour
         Application.Quit();
     }
 
+    //If you go into settings from the pause menu, disable the character buttons
     public void Settingsmenu()
     {
         pausemenu.SetActive(false);

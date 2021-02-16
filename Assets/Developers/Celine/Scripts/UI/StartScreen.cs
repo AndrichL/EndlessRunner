@@ -27,7 +27,7 @@ public class StartScreen : MonoBehaviour
 
     public void StartGame()
     {
-
+        //use the player you chose in settings, or use default
         if (SettingsMenu.instance.player1Chosen == true)
         {
             Instantiate(player1, playerSpawnPosition.transform.position, Quaternion.identity);
