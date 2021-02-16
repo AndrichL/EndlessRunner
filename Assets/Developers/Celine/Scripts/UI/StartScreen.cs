@@ -27,18 +27,19 @@ public class StartScreen : MonoBehaviour
 
     public void StartGame()
     {
+        Andrich.GameStateManager.m_Instance.SetGameState(Andrich.GameStateManager.GameState.inGame);
+
         //use the player you chose in settings, or use default
-        if (SettingsMenu.instance.player1Chosen == true)
-        {
-            Instantiate(player1, playerSpawnPosition.transform.position, Quaternion.identity);
-        }
-        else if (SettingsMenu.instance.player2Chosen == true)
+
+        if (SettingsMenu.instance.player2Chosen == true)
         {
             Instantiate(player2, playerSpawnPosition.transform.position, Quaternion.identity);
+
         }  
         else if (SettingsMenu.instance.player3Chosen == true)
         {
             Instantiate(player3, playerSpawnPosition.transform.position, Quaternion.identity);
+
         }
         else
         {
@@ -56,6 +57,8 @@ public class StartScreen : MonoBehaviour
   
     public void Settings()
     {
+        Andrich.GameStateManager.m_Instance.SetGameState(Andrich.GameStateManager.GameState.mainMenuSettings);
+
         StartPanel.SetActive(false);
         SettingsPanel.SetActive(true);
         SettingsMenu.instance.fromStart = true;

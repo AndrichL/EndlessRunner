@@ -25,7 +25,7 @@ namespace Andrich
             public AudioClip m_Clip;
 
             [Range(0f, 1f)]
-            public float m_Volume;
+            public float m_Volume = 1;
 
             public bool m_Loop;
 

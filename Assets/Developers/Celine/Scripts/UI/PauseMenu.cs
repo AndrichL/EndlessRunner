@@ -17,17 +17,46 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    private void SetPause()
+    public void SetPause()
     {
-        pausemenu.SetActive(true);
-        Time.timeScale = 0f;
+        switch (Andrich.GameStateManager.m_Instance.GetCurrentGameState())
+        {
+            case Andrich.GameStateManager.GameState.inGame:
+                Time.timeScale = 0f;
+
+                Andrich.GameStateManager.m_Instance.SetGameState(Andrich.GameStateManager.GameState.pauseMenu);
+
+                pausemenu.SetActive(true);
+
+                break;
+            case Andrich.GameStateManager.GameState.pauseMenu:
+                Time.timeScale = 1f;
+
+                Andrich.GameStateManager.m_Instance.SetGameState(Andrich.GameStateManager.GameState.inGame);
+
+                settingsmenu.SetActive(false);
+                pausemenu.SetActive(false);
+
+                break;
+            case Andrich.GameStateManager.GameState.pauseMenuSettings:
+                Time.timeScale = 1f;
+
+                Andrich.GameStateManager.m_Instance.SetGameState(Andrich.GameStateManager.GameState.inGame);
+
+                settingsmenu.SetActive(false);
+                pausemenu.SetActive(false);
+
+                break;
+            default:
+                break;
+        }
     }
 
-    public void Resume()
-    {
-        pausemenu.SetActive(false);
-        Time.timeScale = 1;
-    }
+    //public void Resume()
+    //{
+    //    pausemenu.SetActive(false);
+    //    Time.timeScale = 1;
+    //}
 
     public void QuitGame()
     {
@@ -37,6 +66,8 @@ public class PauseMenu : MonoBehaviour
     //If you go into settings from the pause menu, disable the character buttons
     public void Settingsmenu()
     {
+        Andrich.GameStateManager.m_Instance.SetGameState(Andrich.GameStateManager.GameState.pauseMenuSettings);
+
         pausemenu.SetActive(false);
         settingsmenu.SetActive(true);
         SettingsMenu.instance.fromPause = true;

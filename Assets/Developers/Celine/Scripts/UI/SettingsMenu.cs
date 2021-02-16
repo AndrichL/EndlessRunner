@@ -36,29 +36,47 @@ public class SettingsMenu : MonoBehaviour
         Application.Quit();
     }
 
+    public void Back()
+    {
+        switch (Andrich.GameStateManager.m_Instance.GetCurrentGameState())
+        {
+            case Andrich.GameStateManager.GameState.mainMenuSettings:
+
+                Andrich.GameStateManager.m_Instance.SetGameState(Andrich.GameStateManager.GameState.mainMenu);
+
+                settingsmenu.SetActive(false);
+                startmenu.SetActive(true);
+                fromStart = false;
+
+                break;
+            case Andrich.GameStateManager.GameState.pauseMenuSettings:
+
+                Andrich.GameStateManager.m_Instance.SetGameState(Andrich.GameStateManager.GameState.pauseMenuSettings);
+
+                settingsmenu.SetActive(false);
+                pausemenu.SetActive(true);
+                fromPause = false;
+
+                break;
+            case Andrich.GameStateManager.GameState.gameOverSettings:
+
+                Andrich.GameStateManager.m_Instance.SetGameState(Andrich.GameStateManager.GameState.gameOver);
+
+                settingsmenu.SetActive(false);
+                gameOvermenu.SetActive(true);
+                fromGameOver = false;
+
+                break;
+            default:
+                break;
+        }
+    }
+
     public void Resume()
     {
         //Remember from what screen you came, so you go back to that screen
-        if (fromStart)
-        {    
-            settingsmenu.SetActive(false);
-            startmenu.SetActive(true);
-            fromStart = false;
-        }
-        else if (fromPause)
-        {
-           
-            settingsmenu.SetActive(false);
-            pausemenu.SetActive(true);
-            fromPause = false;
-        }
-        else if (fromGameOver)
-        {
-          
-            settingsmenu.SetActive(false);
-            gameOvermenu.SetActive(true);
-            fromGameOver = false;
-        }
+
+        
     }
 
     //choose the skin you want to use
@@ -68,12 +86,14 @@ public class SettingsMenu : MonoBehaviour
         player2Chosen = false;
         player3Chosen = false;
     }
+
     public void ChoosePlayer2() 
     {
         player1Chosen = false;
         player2Chosen = true;
         player3Chosen = false;
     }
+
     public void ChoosePlayer3() 
     {
         player1Chosen = false;

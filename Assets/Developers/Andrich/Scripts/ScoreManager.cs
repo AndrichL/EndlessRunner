@@ -25,7 +25,7 @@ namespace Andrich
                 Destroy(this);
             }
 
-            m_IncreaseSpeed = GameObject.FindGameObjectWithTag("Player").GetComponent<Moving>().GetSpeed();
+            //m_IncreaseSpeed = GameObject.FindGameObjectWithTag("Player").GetComponent<Moving>().GetSpeed();
         }
 
         private void Update()
@@ -34,12 +34,14 @@ namespace Andrich
             m_Score += delta;
 
             m_Score += Mathf.Clamp(delta, 0, m_MaxScore);
-            Debug.Log(m_Score);
+            //Debug.Log(m_Score);
         }
 
         public float GetScore()
         {
             return m_Score;
         }
+
+        //public void (Moving )
     }
 }
