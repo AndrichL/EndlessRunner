@@ -1071,13 +1071,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
-  timeBetweenSpawns: 5
+  timeBetweenSpawns: 3
   randomObject1: {fileID: 4114246357832155157, guid: 35e0d6ace69bda84ca39a3a2b112d562, type: 3}
   randomObject2: {fileID: 4114246357832155157, guid: d59f0a342ddddf7408a55cfab1390e3a, type: 3}
   randomObject3: {fileID: 1467403957107092451, guid: 692c246d4bb3fa3418a5ce5dab165818, type: 3}
   randomObject4: {fileID: 4114246357832155157, guid: ec7b8270ed8a4f242aabc48adb2a0b5f, type: 3}
   useObjectPool: 1
-  Obstacles: 3
+  Obstacles: 4
   Waves: 0
   spawn: {fileID: 1343341801}
   spawn2: {fileID: 703236913}

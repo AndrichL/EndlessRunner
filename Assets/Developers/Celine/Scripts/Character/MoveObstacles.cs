@@ -15,18 +15,18 @@ public class MoveObstacles : MonoBehaviour
     void Update()
     {
         //Spawn/speed changes 
-        if (GameManager_Celine.instance.Waves <= 4)
-        {
-            GameManager_Celine.instance.timeBetweenSpawns = 5f;
-        }
-        else if (GameManager_Celine.instance.Waves > 4)
-        {
-            GameManager_Celine.instance.timeBetweenSpawns = 3f;
-        }
-        else if (GameManager_Celine.instance.Waves > 6)
-        {
-            GameManager_Celine.instance.timeBetweenSpawns = 1f;
-        }
+        //if (GameManager_Celine.instance.Waves <= 4)
+        //{
+        //    GameManager_Celine.instance.timeBetweenSpawns = 5f;
+        //}
+        //else if (GameManager_Celine.instance.Waves > 4)
+        //{
+        //    GameManager_Celine.instance.timeBetweenSpawns = 3f;
+        //}
+        //else if (GameManager_Celine.instance.Waves > 6)
+        //{
+        //    GameManager_Celine.instance.timeBetweenSpawns = 1f;
+        //}
        
         //Move the obstacles to the right
         rb2d.velocity = speed;
