@@ -2539,9 +2539,9 @@ MonoBehaviour:
   timer: 0
   timeBetweenSpawns: 0
   randomObject1: {fileID: 4114246357832155157, guid: cf5cd932454264e43946b749846ea705, type: 3}
-  randomObject2: {fileID: 4114246357832155157, guid: cf5cd932454264e43946b749846ea705, type: 3}
-  randomObject3: {fileID: 4114246357832155157, guid: cf5cd932454264e43946b749846ea705, type: 3}
-  randomObject4: {fileID: 4114246357832155157, guid: cf5cd932454264e43946b749846ea705, type: 3}
+  randomObject2: {fileID: 1467403957107092451, guid: ff543f187c62a58488610647edc887a6, type: 3}
+  randomObject3: {fileID: 4114246357832155157, guid: 32947ac2fe2326743868715f71f82fea, type: 3}
+  randomObject4: {fileID: 4114246357832155157, guid: 277e92e358067aa4695aabd4d720eb6c, type: 3}
   useObjectPool: 1
   Obstacles: 3
   Waves: 0
