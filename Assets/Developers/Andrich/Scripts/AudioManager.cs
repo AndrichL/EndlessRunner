@@ -18,15 +18,15 @@ namespace Andrich
         [SerializeField] private AudioMixerGroup m_Music;
         [SerializeField] private AudioMixerGroup m_SFX;
         [SerializeField] private Sound[] m_Sounds;
+        private static float m_Volume;
 
         private string m_MasterKey = "Master";
         private string m_MusicKey = "Music";
         private string m_SFXKey = "SFX";
 
         public static AudioManager m_Instance { get; private set; }
-        private static bool m_FirstStart = true;
 
-        [System.Serializable]
+        [Serializable]
         public class Sound
         {
             public string m_SoundName;
@@ -46,11 +46,8 @@ namespace Andrich
 
         private void Awake()
         {
-            if(m_FirstStart)
-            {
-                m_Master.audioMixer.SetFloat(m_MasterKey, m_MasterVolumeSlider.maxValue);
-                m_FirstStart = false;
-            }
+            m_Master.audioMixer.SetFloat(m_MasterKey, m_Volume);
+            m_MasterVolumeSlider.value = m_Volume;
 
             if (m_Instance == null)
             {
@@ -165,7 +162,13 @@ namespace Andrich
 
         public void SetMasterVolume(float value)
         {
+            if(value <= -40)
+            {
+                value = -80;
+            }
+
             m_Master.audioMixer.SetFloat(m_MasterKey, value);
+            m_Volume = value;
         }
 
         public void SetMusicVolume(float value)

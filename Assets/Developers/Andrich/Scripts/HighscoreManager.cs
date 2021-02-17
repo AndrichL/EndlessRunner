@@ -145,10 +145,9 @@ namespace Andrich
 
             if (value.Length >= m_InputField.characterLimit) // Max initials in Input Field is 3
             {
-                AddHighscoreEntry(value.ToUpper(), Mathf.RoundToInt(ScoreManager.m_Instance.GetScore())); // Add new highscore
+                AddHighscoreEntry(value.ToUpper(), ScoreManager.m_Instance.GetFinalScore()); // Add new highscore
                 m_InputField.gameObject.SetActive(false);
             }
         }
-
     }
 }

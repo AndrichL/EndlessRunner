@@ -7,6 +7,7 @@ public class StartScreen : MonoBehaviour
     public GameObject playerSpawnPosition;
     public GameObject StartPanel;
     public GameObject SettingsPanel;
+    [SerializeField] private GameObject m_Hud;
 
     [Header("PlayerOptions")]
     public GameObject player1;
@@ -30,23 +31,29 @@ public class StartScreen : MonoBehaviour
     public void StartGame()
     {
         Andrich.GameStateManager.m_Instance.SetGameState(Andrich.GameStateManager.GameState.inGame);
-
+        GameObject player;
         //use the player you chose in settings, or use default
 
         if (SettingsMenu.instance.player2Chosen == true)
         {
-            Instantiate(player2, playerSpawnPosition.transform.position, Quaternion.identity);
+            player = Instantiate(player2, playerSpawnPosition.transform.position, Quaternion.identity);
         }  
         else if (SettingsMenu.instance.player3Chosen == true)
         {
-            Instantiate(player3, playerSpawnPosition.transform.position, Quaternion.identity);
+            player = Instantiate(player3, playerSpawnPosition.transform.position, Quaternion.identity);
         }
         else
         {
-            Instantiate(player1, playerSpawnPosition.transform.position, Quaternion.identity);
+            player = Instantiate(player1, playerSpawnPosition.transform.position, Quaternion.identity);
         }
 
+
+        Andrich.ScoreManager.m_Instance.GetCurrentPlayer(player.GetComponent<Moving>());
+        Andrich.ScoreManager.m_Instance.HUDSetActive(true);
+
         StartPanel.SetActive(false);
+        m_Hud.SetActive(true);
+
         Time.timeScale = 1f;
     }
 
