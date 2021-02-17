@@ -62,19 +62,19 @@ public class GameManager_Celine : MonoBehaviour
             //Take 2 tranforms and make a random range out of that
             Vector3 randomPos = new Vector3(Random.Range(spawn.position.x, spawn2.position.x), (Random.Range(spawn.position.y, spawn2.position.y)));
             
-            Quaternion spawnRotation = Quaternion.Euler(0, 0, 180);
+            //Quaternion spawnRotation = Quaternion.Euler(0, 0, 0);
 
             int randomNum = Random.Range(1, 4);
 
             //spawn the obstacles
             if (randomNum == 1)
-                obstaclePool1.GetPooledObject(randomPos, spawnRotation);
+                obstaclePool1.GetPooledObject(randomPos, Quaternion.identity);
             if(randomNum == 2)
-                obstaclePool2.GetPooledObject(randomPos, spawnRotation);
+                obstaclePool2.GetPooledObject(randomPos, Quaternion.identity);
             if (randomNum == 3)
-                obstaclePool3.GetPooledObject(randomPos, spawnRotation);
+                obstaclePool3.GetPooledObject(randomPos, Quaternion.identity);
             if (randomNum == 4)
-                obstaclePool4.GetPooledObject(randomPos, spawnRotation);
+                obstaclePool4.GetPooledObject(randomPos, Quaternion.identity);
         }
         Waves++;
     }
