@@ -20,18 +20,18 @@ public class MoveObstacles : MonoBehaviour
         if (GameManager_Celine.instance.Waves <= 4)
         {
             GameManager_Celine.instance.timeBetweenSpawns = 5f;
-            speed = 6;
+            speed = 2 + Random.Range(2, 10);
         }
         else if (GameManager_Celine.instance.Waves > 4)
         {
             GameManager_Celine.instance.timeBetweenSpawns = 1f;
-            speed = 12;
+            speed = 4 + Random.Range(2, 10);
         }
        
         //Move the obstacles to the right
         Vector3 move = new Vector3(-4f, 0);
         transform.position += move * speed * Time.deltaTime;
-        rb2d.rotation += 1f;
+
     }
 
 
@@ -41,7 +41,6 @@ public class MoveObstacles : MonoBehaviour
         if (collision.tag == "Death")
         {
             SimplePool.PoolItem.ReturnToPoolOrDestroy(gameObject, GameManager_Celine.instance.useObjectPool = true);
-            //ScoreManager_Celine.instance.AddScore();
         }
 
     }
