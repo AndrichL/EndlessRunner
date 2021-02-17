@@ -661,7 +661,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 524779992}
-  - component: {fileID: 524779993}
+  - component: {fileID: 524779994}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -683,7 +683,7 @@ Transform:
   m_Father: {fileID: 1277211520}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &524779993
+--- !u!114 &524779994
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -692,52 +692,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 524779991}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96601364e35e7e94abdee9c019cf81a0, type: 3}
+  m_Script: {fileID: 11500000, guid: daad8908b1ae8d84daf7922c67c67b10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MasterVolumeSlider: {fileID: 1463650210}
   m_MusicToggle: {fileID: 1180970432}
   m_SFXToggle: {fileID: 652844704}
-  m_Master: {fileID: 24300002, guid: 5e3c91469028b7c47b2f6e7d1d2649a5, type: 2}
-  m_Music: {fileID: -351794547170446580, guid: 5e3c91469028b7c47b2f6e7d1d2649a5, type: 2}
-  m_SFX: {fileID: 6181422081237868894, guid: 5e3c91469028b7c47b2f6e7d1d2649a5, type: 2}
-  m_Sounds:
-  - m_SoundName: MainMenu
-    m_AudioMixer: {fileID: -351794547170446580, guid: 5e3c91469028b7c47b2f6e7d1d2649a5, type: 2}
-    m_Clip: {fileID: 8300000, guid: 3b54ed615d253e145ab1c4081a06df79, type: 3}
-    m_Volume: 1
-    m_Loop: 1
-    m_Source: {fileID: 0}
-  - m_SoundName: InGame
-    m_AudioMixer: {fileID: -351794547170446580, guid: 5e3c91469028b7c47b2f6e7d1d2649a5, type: 2}
-    m_Clip: {fileID: 8300000, guid: 9dbd0f23145dbe94f924827b6686f592, type: 3}
-    m_Volume: 1
-    m_Loop: 1
-    m_Source: {fileID: 0}
-  - m_SoundName: Engine
-    m_AudioMixer: {fileID: -351794547170446580, guid: 5e3c91469028b7c47b2f6e7d1d2649a5, type: 2}
-    m_Clip: {fileID: 8300000, guid: 658f0d8698639c345922935f5a62b230, type: 3}
-    m_Volume: 1
-    m_Loop: 1
-    m_Source: {fileID: 0}
-  - m_SoundName: Button
-    m_AudioMixer: {fileID: 6181422081237868894, guid: 5e3c91469028b7c47b2f6e7d1d2649a5, type: 2}
-    m_Clip: {fileID: 8300000, guid: 90dbefc919d020b4ba716a6de22f957d, type: 3}
-    m_Volume: 1
-    m_Loop: 0
-    m_Source: {fileID: 0}
-  - m_SoundName: Explosion
-    m_AudioMixer: {fileID: 6181422081237868894, guid: 5e3c91469028b7c47b2f6e7d1d2649a5, type: 2}
-    m_Clip: {fileID: 8300000, guid: fd1146f0601dd7b4690595bb4cba757e, type: 3}
-    m_Volume: 1
-    m_Loop: 0
-    m_Source: {fileID: 0}
-  - m_SoundName: Play
-    m_AudioMixer: {fileID: 6181422081237868894, guid: 5e3c91469028b7c47b2f6e7d1d2649a5, type: 2}
-    m_Clip: {fileID: 8300000, guid: 94e7e0c0fbea1684d8f85d5fe714f6af, type: 3}
-    m_Volume: 1
-    m_Loop: 0
-    m_Source: {fileID: 0}
+  m_Master: {fileID: 24300002, guid: 38a173edcc531c045b300681a607e997, type: 2}
+  m_Music: {fileID: -351794547170446580, guid: 38a173edcc531c045b300681a607e997, type: 2}
+  m_SFX: {fileID: 6181422081237868894, guid: 38a173edcc531c045b300681a607e997, type: 2}
+  m_Sounds: []
 --- !u!1 &552130189
 GameObject:
   m_ObjectHideFlags: 0
@@ -1577,7 +1541,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a76c97df6029f854e90aca15abcdc7dc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 820bd8aaeb938294297f6c1572d93f16, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1653,7 +1617,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2f0cfff8e6285104c853e49c903307c9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 511a6711de2b78949bc07be1b734b93f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1785,8 +1749,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 196, y: 38}
+  m_AnchoredPosition: {x: -0.75, y: 0}
+  m_SizeDelta: {x: 194.5, y: 38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1105078278
 MonoBehaviour:
@@ -1808,7 +1772,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e6175cd94bd6fa343a113870dfac04fc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 801f4a0c8c2181742ad766887c38ce89, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1923,7 +1887,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 84bd315e4a5768545840d75a0c56927f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5295fbb3b60eeb144b87ac036ac3f4bc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2298,7 +2262,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2e35ebb2d6880214ba698e69b6427c59, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5bcd8a6422aa1624eb759fbb53645593, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2403,7 +2367,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1c7807e3dec2c9c42a86112528cf65e2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 03c99434973225441abc2e0e5015bf37, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2511,7 +2475,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 524779993}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Andrich.AudioManager, Assembly-CSharp
         m_MethodName: SetMasterVolume
         m_Mode: 0
@@ -2552,7 +2516,7 @@ GameObject:
   - component: {fileID: 1517263298}
   - component: {fileID: 1517263299}
   - component: {fileID: 1517263300}
-  - component: {fileID: 1517263301}
+  - component: {fileID: 1517263302}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2673,7 +2637,7 @@ MonoBehaviour:
   player1button: {fileID: 605977052}
   player2button: {fileID: 763322129}
   player3button: {fileID: 231511225}
---- !u!114 &1517263301
+--- !u!114 &1517263302
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2682,7 +2646,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1517263294}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d46c17919f018fc4a9aa6cafea8355db, type: 3}
+  m_Script: {fileID: 11500000, guid: 702aa82c94921a84c89e37a023ba74d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1591656017
@@ -2742,7 +2706,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1c7807e3dec2c9c42a86112528cf65e2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 03c99434973225441abc2e0e5015bf37, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2950,7 +2914,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2f0cfff8e6285104c853e49c903307c9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 511a6711de2b78949bc07be1b734b93f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2982,7 +2946,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1896230265}
-  - component: {fileID: 1896230267}
+  - component: {fileID: 1896230266}
   m_Layer: 0
   m_Name: ScoreManager
   m_TagString: Untagged
@@ -3004,7 +2968,7 @@ Transform:
   m_Father: {fileID: 1277211520}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1896230267
+--- !u!114 &1896230266
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3013,7 +2977,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1896230264}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12a8fef83aa6f30409603d4816fee5a1, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e22f4321e058de44bb55451a29846d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_IngameScoreText: {fileID: 46358447}
@@ -3516,7 +3480,7 @@ PrefabInstance:
     - target: {fileID: 9077823626916374982, guid: ddd4c7b952fca3149848ae93db9a9eb5, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 18dadc268f6f858428fe742274b310bb, type: 3}
+      objectReference: {fileID: 21300000, guid: 058ba4400020ac14d8d8d6d2927423c5, type: 3}
     - target: {fileID: 9130208596339600724, guid: ddd4c7b952fca3149848ae93db9a9eb5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3959,7 +3923,7 @@ PrefabInstance:
     - target: {fileID: 3400974673912794104, guid: 8741e245d2be4a24cbfd43c528bd887e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: e09070ca9703465419f80dbb8d16bd30, type: 3}
+      objectReference: {fileID: 21300000, guid: 428365edc49770d4b9e58f835dec855b, type: 3}
     - target: {fileID: 3772332816342788621, guid: 8741e245d2be4a24cbfd43c528bd887e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
