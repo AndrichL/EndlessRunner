@@ -1,10 +1,7 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
+using UnityEngine.Windows;
 
 namespace Andrich
 {
@@ -24,7 +21,6 @@ namespace Andrich
             public int m_Score;
         }
 
-
         [SerializeField] private InputField m_InputField;
 
         [SerializeField] private Transform m_EntryParent;
@@ -33,7 +29,6 @@ namespace Andrich
         [SerializeField] private float m_MaxEntries = 3;
 
         private List<Transform> m_HighscoreEntryTransformList;
-        private string m_HighscoreKey = "Highscore";
         private string m_ScoreTextKey = "ScoreText";
         private string m_InitialsTextKey = "InitialsText";
 
@@ -52,20 +47,35 @@ namespace Andrich
 
             m_EntryTemplate.gameObject.SetActive(false);
 
-            string jsonString = PlayerPrefs.GetString(m_HighscoreKey);
-            Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
+            SaveSystem.CheckSaveFolder();
+
+            string saveString = SaveSystem.Load();
+            Highscores highscores = JsonUtility.FromJson<Highscores>(saveString);
+
+            if(highscores.m_HighscoreEntryList == null)
+            {
+                highscores.m_HighscoreEntryList = new List<HighscoreEntry>()
+                    {
+                        new HighscoreEntry{m_Score = 50, m_Initials = "CEL"},
+                        new HighscoreEntry{m_Score = 40, m_Initials = "ISA"},
+                        new HighscoreEntry{m_Score = 30, m_Initials = "JOR"},
+                    };
+            }
 
             //Sort entry list by score
-            for (int i = 0; i < highscores.m_HighscoreEntryList.Count; i++) //current
+            if (highscores.m_HighscoreEntryList.Count > 0)
             {
-                for (int n = 0; n < highscores.m_HighscoreEntryList.Count; n++) //next
+                for (int i = 0; i < highscores.m_HighscoreEntryList.Count; i++) //current
                 {
-                    if (highscores.m_HighscoreEntryList[i].m_Score > highscores.m_HighscoreEntryList[n].m_Score)
+                    for (int n = 0; n < highscores.m_HighscoreEntryList.Count; n++) //next
                     {
-                        //Swap
-                        HighscoreEntry currentStored = highscores.m_HighscoreEntryList[i];
-                        highscores.m_HighscoreEntryList[i] = highscores.m_HighscoreEntryList[n];
-                        highscores.m_HighscoreEntryList[n] = currentStored;
+                        if (highscores.m_HighscoreEntryList[i].m_Score > highscores.m_HighscoreEntryList[n].m_Score)
+                        {
+                            //Swap
+                            HighscoreEntry currentStored = highscores.m_HighscoreEntryList[i];
+                            highscores.m_HighscoreEntryList[i] = highscores.m_HighscoreEntryList[n];
+                            highscores.m_HighscoreEntryList[n] = currentStored;
+                        }
                     }
                 }
             }
@@ -75,6 +85,9 @@ namespace Andrich
             {
                 CreateHighscoreEntryTransform(highscores.m_HighscoreEntryList[i], m_EntryParent, m_HighscoreEntryTransformList);
             }
+
+            string json = JsonUtility.ToJson(highscores);
+            SaveSystem.Save(json);
         }
 
         private void CreateHighscoreEntryTransform(HighscoreEntry highscoreEntry, Transform container, List<Transform> transformList)
@@ -84,31 +97,6 @@ namespace Andrich
 
             entryRectTransform.anchoredPosition = new Vector2(m_CopyOffset.x * transformList.Count, -m_CopyOffset.y * transformList.Count);
             entryTransform.gameObject.SetActive(true);
-
-            #region Position
-            //int rank = transformList.Count + 1;
-            //string rankString;
-            //switch (rank)
-            //{
-            //    default:
-            //        rankString = rank + "TH";
-            //        break;
-            //    case 1:
-            //        rankString = "1ST";
-            //        entryTransform.Find("PositionText").GetComponent<Text>().color = Color.green;
-            //        entryTransform.Find("ScoreText").GetComponent<Text>().color = Color.green;
-            //        entryTransform.Find("InitialText").GetComponent<Text>().color = Color.green;
-            //        break;
-            //    case 2:
-            //        rankString = "2ND";
-            //        break;
-            //    case 3:
-            //        rankString = "3RD";
-            //        break;
-            //}
-
-            //entryTransform.Find("PositionText").GetComponent<Text>().text = rankString;
-            #endregion
 
             int score = highscoreEntry.m_Score;
 
@@ -126,15 +114,15 @@ namespace Andrich
             HighscoreEntry highscoreEntry = new HighscoreEntry { m_Initials = initials, m_Score = score };
 
             // Load saved Highscores
-            string jsonString = PlayerPrefs.GetString(m_HighscoreKey);
-            Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
+            string saveString = PlayerPrefs.GetString(SaveSystem.Load());
+            Highscores highscores = JsonUtility.FromJson<Highscores>(saveString);
 
             // Add new entry to Highscores
             highscores.m_HighscoreEntryList.Add(highscoreEntry);
 
             // Save updated Highscores
             string json = JsonUtility.ToJson(highscores);
-            PlayerPrefs.SetString(m_HighscoreKey, json);
+            SaveSystem.Save(json);
             PlayerPrefs.Save();
         }
 

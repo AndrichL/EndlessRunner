@@ -9,26 +9,25 @@ namespace Andrich
     {
         public static GameStateManager m_Instance { get; private set; }
 
-        private static GameState m_CurrentState;
-        private static GameState m_PreviousState;
+        private GameState m_CurrentState;
+        private GameState m_PreviousState;
 
         public enum GameState
         { 
-            notSet = 0,
-            starting = 1,
-            inGame = 2,
+            notSet,
+            starting,
+            inGame,
 
-            mainMenu = 3,
-            pauseMenu = 4,
-            gameOver = 5,
+            mainMenu,
+            pauseMenu,
+            gameOver,
 
-            settingsMenu = 6,
-            mainMenuSettings = 7,
-            pauseMenuSettings = 8,
-            gameOverSettings = 9,
-            leaderBoardSettings = 10,
+            mainMenuSettings,
+            pauseMenuSettings,
+            gameOverSettings,
 
-            leaderBoard = 11
+            mainMenuHighscores,
+            gameOverHighscores,
         }
 
         private void Awake()
@@ -46,9 +45,7 @@ namespace Andrich
         public void SetGameState(GameState newGameState)
         {
             if (newGameState == m_CurrentState)
-            {
                 return;
-            }
 
             m_PreviousState = m_CurrentState;
             m_CurrentState = newGameState;

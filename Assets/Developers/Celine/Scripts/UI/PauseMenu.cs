@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject m_HUD;
     public GameObject pausemenu;
     public GameObject settingsmenu;
 
@@ -28,8 +27,6 @@ public class PauseMenu : MonoBehaviour
                 Andrich.GameStateManager.m_Instance.SetGameState(Andrich.GameStateManager.GameState.pauseMenu);
 
                 pausemenu.SetActive(true);
-                Andrich.ScoreManager.m_Instance.HUDSetActive(false);
-
 
                 break;
             case Andrich.GameStateManager.GameState.pauseMenu:
@@ -39,7 +36,6 @@ public class PauseMenu : MonoBehaviour
 
                 settingsmenu.SetActive(false);
                 pausemenu.SetActive(false);
-                Andrich.ScoreManager.m_Instance.HUDSetActive(true);
 
                 break;
             case Andrich.GameStateManager.GameState.pauseMenuSettings:
@@ -49,7 +45,6 @@ public class PauseMenu : MonoBehaviour
 
                 settingsmenu.SetActive(false);
                 pausemenu.SetActive(false);
-                Andrich.ScoreManager.m_Instance.HUDSetActive(true);
 
                 break;
             default:
@@ -57,23 +52,29 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    //public void Resume()
+    //{
+    //    pausemenu.SetActive(false);
+    //    Time.timeScale = 1;
+    //}
+
     public void QuitGame()
     {
         Application.Quit();
     }
 
     //If you go into settings from the pause menu, disable the character buttons
-    //public void Settingsmenu()
-    //{
-    //    Andrich.GameStateManager.m_Instance.SetGameState(Andrich.GameStateManager.GameState.pauseMenuSettings);
+    public void Settingsmenu()
+    {
+        Andrich.GameStateManager.m_Instance.SetGameState(Andrich.GameStateManager.GameState.pauseMenuSettings);
 
-    //    pausemenu.SetActive(false);
-    //    settingsmenu.SetActive(true);
-    //    SettingsMenu.instance.fromPause = true;
-    //    SettingsMenu.instance.settingsmenuFromPause.SetActive(true);
-    //    SettingsMenu.instance.settingsBG.SetActive(false);
-    //    SettingsMenu.instance.player1button.SetActive(false);
-    //    SettingsMenu.instance.player2button.SetActive(false);
-    //    SettingsMenu.instance.player3button.SetActive(false);
-    //}
+        pausemenu.SetActive(false);
+        settingsmenu.SetActive(true);
+        SettingsMenu.instance.fromPause = true;
+        SettingsMenu.instance.settingsmenuFromPause.SetActive(true);
+        SettingsMenu.instance.settingsBG.SetActive(false);
+        SettingsMenu.instance.player1button.SetActive(false);
+        SettingsMenu.instance.player2button.SetActive(false);
+        SettingsMenu.instance.player3button.SetActive(false);
+    }
 }

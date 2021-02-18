@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class SettingsMenu : MonoBehaviour
 {
-
-    [SerializeField] private GameObject m_LeaderBoard;
-    [SerializeField] private GameObject m_HUD;
     public GameObject settingsmenu;
     public GameObject startmenu;
     public GameObject pausemenu;
@@ -17,14 +14,13 @@ public class SettingsMenu : MonoBehaviour
     public static SettingsMenu instance;
 
     [Header("PlayerOptions")]
-    private static int m_RocketSkinNumber;
-    //public bool player1Chosen;
-    //public bool player2Chosen;
-    //public bool player3Chosen;
+    public bool player1Chosen;
+    public bool player2Chosen;
+    public bool player3Chosen;
 
-    //public bool fromStart;
-    //public bool fromGameOver;
-    //public bool fromPause;
+    public bool fromStart;
+    public bool fromGameOver;
+    public bool fromPause;
 
     public GameObject player1button;
     public GameObject player2button;
@@ -42,83 +38,33 @@ public class SettingsMenu : MonoBehaviour
 
     public void Back()
     {
-        switch (Andrich.GameStateManager.m_Instance.GetPreviousState())
+        switch (Andrich.GameStateManager.m_Instance.GetCurrentGameState())
         {
-            case Andrich.GameStateManager.GameState.mainMenu:
+            case Andrich.GameStateManager.GameState.mainMenuSettings:
 
                 Andrich.GameStateManager.m_Instance.SetGameState(Andrich.GameStateManager.GameState.mainMenu);
 
+                settingsmenu.SetActive(false);
                 startmenu.SetActive(true);
+                fromStart = false;
 
                 break;
-            case Andrich.GameStateManager.GameState.pauseMenu:
-
-                Andrich.GameStateManager.m_Instance.SetGameState(Andrich.GameStateManager.GameState.pauseMenu);
-
-                pausemenu.SetActive(true);
-
-                break;
-            case Andrich.GameStateManager.GameState.gameOver:
-
-                Andrich.GameStateManager.m_Instance.SetGameState(Andrich.GameStateManager.GameState.gameOver);
-
-                gameOvermenu.SetActive(true);
-
-                break;
-            case Andrich.GameStateManager.GameState.leaderBoard:
-
-                Andrich.GameStateManager.m_Instance.SetGameState(Andrich.GameStateManager.GameState.leaderBoard);
-
-                m_LeaderBoard.SetActive(true);
-
-                break;
-            default:
-                break;
-        }
-
-        settingsmenu.SetActive(false);
-
-    }
-
-    public void OpenSettings(int value)
-    {
-        // Open the settings menu from the previous GameState
-        Andrich.GameStateManager.GameState arrivedFromState = (Andrich.GameStateManager.GameState)value;
-        Andrich.GameStateManager.m_Instance.SetGameState(arrivedFromState); // Just the set the previous state
-
-
-        switch (arrivedFromState)
-        {
-            case Andrich.GameStateManager.GameState.mainMenu: // 3
-
-                Andrich.GameStateManager.m_Instance.SetGameState(Andrich.GameStateManager.GameState.mainMenuSettings);
-
-                startmenu.SetActive(false);
-                SetSettingsActiveFromPause(false);
-
-                break;
-            case Andrich.GameStateManager.GameState.pauseMenu: // 4
+            case Andrich.GameStateManager.GameState.pauseMenuSettings:
 
                 Andrich.GameStateManager.m_Instance.SetGameState(Andrich.GameStateManager.GameState.pauseMenuSettings);
 
-                pausemenu.SetActive(false);
-                SetSettingsActiveFromPause(true);
+                settingsmenu.SetActive(false);
+                pausemenu.SetActive(true);
+                fromPause = false;
 
                 break;
-            case Andrich.GameStateManager.GameState.gameOver: // 5
+            case Andrich.GameStateManager.GameState.gameOverSettings:
 
-                Andrich.GameStateManager.m_Instance.SetGameState(Andrich.GameStateManager.GameState.gameOverSettings);
+                Andrich.GameStateManager.m_Instance.SetGameState(Andrich.GameStateManager.GameState.gameOver);
 
-                gameOvermenu.SetActive(false);
-                SetSettingsActiveFromPause(false);
-
-                break;
-            case Andrich.GameStateManager.GameState.leaderBoard: // 11
-
-                Andrich.GameStateManager.m_Instance.SetGameState(Andrich.GameStateManager.GameState.leaderBoardSettings);
-
-                m_LeaderBoard.SetActive(false);
-                SetSettingsActiveFromPause(false);
+                settingsmenu.SetActive(false);
+                gameOvermenu.SetActive(true);
+                fromGameOver = false;
 
                 break;
             default:
@@ -126,27 +72,32 @@ public class SettingsMenu : MonoBehaviour
         }
     }
 
-    private void SetSettingsActiveFromPause(bool value)
+    public void Resume()
     {
-        settingsmenuFromPause.SetActive(value);
+        //Remember from what screen you came, so you go back to that screen
 
-        settingsBG.SetActive(!value);
-        player1button.SetActive(!value);
-        player2button.SetActive(!value);
-        player3button.SetActive(!value);
-
-        settingsmenu.SetActive(true);
+        
     }
 
     //choose the skin you want to use
-    public void SetRocketSkin(int value)
+    public void ChoosePlayer1()
     {
-        m_RocketSkinNumber = value;
+        player1Chosen = true;
+        player2Chosen = false;
+        player3Chosen = false;
     }
 
-    public int GetRocketSkinNumber()
+    public void ChoosePlayer2() 
     {
-        return m_RocketSkinNumber;
+        player1Chosen = false;
+        player2Chosen = true;
+        player3Chosen = false;
     }
 
+    public void ChoosePlayer3() 
+    {
+        player1Chosen = false;
+        player2Chosen = false;
+        player3Chosen = true;
+    }
 }

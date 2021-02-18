@@ -34,25 +34,25 @@ public class StartScreen : MonoBehaviour
         GameObject player;
         //use the player you chose in settings, or use default
 
-        switch (SettingsMenu.instance.GetRocketSkinNumber())
+        if (SettingsMenu.instance.player2Chosen == true)
         {
-            case 2:
-                player = Instantiate(player2, playerSpawnPosition.transform.position, Quaternion.identity);
-
-                break;
-            case 3:
-                player = Instantiate(player3, playerSpawnPosition.transform.position, Quaternion.identity);
-
-                break;
-            default:
-                player = Instantiate(player1, playerSpawnPosition.transform.position, Quaternion.identity);
-                break;
+            player = Instantiate(player2, playerSpawnPosition.transform.position, Quaternion.identity);
+        }  
+        else if (SettingsMenu.instance.player3Chosen == true)
+        {
+            player = Instantiate(player3, playerSpawnPosition.transform.position, Quaternion.identity);
         }
+        else
+        {
+            player = Instantiate(player1, playerSpawnPosition.transform.position, Quaternion.identity);
+        }
+
 
         Andrich.ScoreManager.m_Instance.GetCurrentPlayer(player.GetComponent<Moving>());
         Andrich.ScoreManager.m_Instance.HUDSetActive(true);
 
         StartPanel.SetActive(false);
+        m_Hud.SetActive(true);
 
         Time.timeScale = 1f;
     }
@@ -62,12 +62,12 @@ public class StartScreen : MonoBehaviour
         Application.Quit();
     }
   
-    //public void Settings()
-    //{
-    //    Andrich.GameStateManager.m_Instance.SetGameState(Andrich.GameStateManager.GameState.mainMenuSettings);
+    public void Settings()
+    {
+        Andrich.GameStateManager.m_Instance.SetGameState(Andrich.GameStateManager.GameState.mainMenuSettings);
 
-    //    StartPanel.SetActive(false);
-    //    SettingsPanel.SetActive(true);
-    //    //SettingsMenu.instance.fromStart = true;
-    //}
+        StartPanel.SetActive(false);
+        SettingsPanel.SetActive(true);
+        SettingsMenu.instance.fromStart = true;
+    }
 }
