@@ -18,25 +18,12 @@ public class Moving : MonoBehaviour
         }
     }
 
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    //If the player hits the planets, its gameover
-    //    if(GameStateManager.m_Instance.GetCurrentGameState() == GameStateManager.GameState.inGame)
-    //    {
-    //        if (collision.tag == "Obstacles")
-    //        {
-    //            Destroy(gameObject);
-    //            DeathScreen.instance.Death();
-    //        }
-    //    }
-    //}
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //If the player hits the planets, its gameover
         if (GameStateManager.m_Instance.GetCurrentGameState() == GameStateManager.GameState.inGame)
         {
-            if (collision.transform.CompareTag("Obstacles"))
+            if (collision.gameObject.CompareTag("Obstacles"))
             {
                 Destroy(gameObject);
                 DeathScreen.instance.Death();

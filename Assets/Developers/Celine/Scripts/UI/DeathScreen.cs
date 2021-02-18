@@ -11,7 +11,6 @@ public class DeathScreen : MonoBehaviour
     public GameObject SettingsPanel;
     [SerializeField] private Text m_FinalScoreText;
     [SerializeField] private GameObject m_LeaderBoard;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +26,7 @@ public class DeathScreen : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-    public void HomeButton()
+    public void Retry()
     {
         Time.timeScale = 1f;
         DeathPanel.SetActive(false);
@@ -52,6 +51,6 @@ public class DeathScreen : MonoBehaviour
 
         DeathPanel.SetActive(false);
         SettingsPanel.SetActive(true);
-        SettingsMenu.instance.fromGameOver = true;
+        //SettingsMenu.instance.fromGameOver = true;
     }
 }

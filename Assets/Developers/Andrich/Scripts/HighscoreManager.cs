@@ -114,11 +114,29 @@ namespace Andrich
             HighscoreEntry highscoreEntry = new HighscoreEntry { m_Initials = initials, m_Score = score };
 
             // Load saved Highscores
-            string saveString = PlayerPrefs.GetString(SaveSystem.Load());
+            string saveString = SaveSystem.Load();
             Highscores highscores = JsonUtility.FromJson<Highscores>(saveString);
 
             // Add new entry to Highscores
             highscores.m_HighscoreEntryList.Add(highscoreEntry);
+
+            // Sort highscores
+            if (highscores.m_HighscoreEntryList.Count > 0)
+            {
+                for (int i = 0; i < highscores.m_HighscoreEntryList.Count; i++) //current
+                {
+                    for (int n = 0; n < highscores.m_HighscoreEntryList.Count; n++) //next
+                    {
+                        if (highscores.m_HighscoreEntryList[i].m_Score > highscores.m_HighscoreEntryList[n].m_Score)
+                        {
+                            //Swap
+                            HighscoreEntry currentStored = highscores.m_HighscoreEntryList[i];
+                            highscores.m_HighscoreEntryList[i] = highscores.m_HighscoreEntryList[n];
+                            highscores.m_HighscoreEntryList[n] = currentStored;
+                        }
+                    }
+                }
+            }
 
             // Save updated Highscores
             string json = JsonUtility.ToJson(highscores);

@@ -1,1 +1,1 @@
-{"m_HighscoreEntryList":[{"m_Initials":"CEL","m_Score":50},{"m_Initials":"ISA","m_Score":40},{"m_Initials":"JOR","m_Score":30}]}
+{"m_HighscoreEntryList":[{"m_Initials":"ANI","m_Score":288},{"m_Initials":"ANI","m_Score":288},{"m_Initials":"CEL","m_Score":50},{"m_Initials":"ISA","m_Score":40},{"m_Initials":"JOR","m_Score":30}]}
