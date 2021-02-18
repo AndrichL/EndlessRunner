@@ -1469,10 +1469,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeaderBoard
       objectReference: {fileID: 0}
-    - target: {fileID: 6802334003596037182, guid: a9b1e4b0bfa1f3f438d7b07bd339c997, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8432715545603016871, guid: a9b1e4b0bfa1f3f438d7b07bd339c997, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1500,14 +1496,6 @@ PrefabInstance:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 524779991}
-    - target: {fileID: 1282847659, guid: ddd4c7b952fca3149848ae93db9a9eb5, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1282847659, guid: ddd4c7b952fca3149848ae93db9a9eb5, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1463650210, guid: ddd4c7b952fca3149848ae93db9a9eb5, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1527,10 +1515,6 @@ PrefabInstance:
     - target: {fileID: 3549105442780147990, guid: ddd4c7b952fca3149848ae93db9a9eb5, type: 3}
       propertyPath: m_Name
       value: SettingsMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 3549105442780147990, guid: ddd4c7b952fca3149848ae93db9a9eb5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5838143442112773973, guid: ddd4c7b952fca3149848ae93db9a9eb5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1737,10 +1721,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameOver
       objectReference: {fileID: 0}
-    - target: {fileID: 2427672917187385938, guid: 1488a8f1bcd9a55498d84051d20895b9, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1488a8f1bcd9a55498d84051d20895b9, type: 3}
 --- !u!224 &6800391576324754236 stripped
@@ -1855,10 +1835,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenu
       objectReference: {fileID: 0}
-    - target: {fileID: 9171585280457188716, guid: 61b0f3140eee4fb4bbad0c6c78e7c00f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61b0f3140eee4fb4bbad0c6c78e7c00f, type: 3}
 --- !u!1001 &8948710177759070297
@@ -1869,24 +1845,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 578041003}
     m_Modifications:
     - target: {fileID: 25597462325819105, guid: 8741e245d2be4a24cbfd43c528bd887e, type: 3}
-      propertyPath: m_SpriteState.m_PressedSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 102b82728906b7c4c8802b10f3c8ac92, type: 3}
-    - target: {fileID: 25597462325819105, guid: 8741e245d2be4a24cbfd43c528bd887e, type: 3}
-      propertyPath: m_SpriteState.m_HighlightedSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c3158f4fabe9eb747aae426d599ba1a7, type: 3}
-    - target: {fileID: 25597462325819105, guid: 8741e245d2be4a24cbfd43c528bd887e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1517263300}
     - target: {fileID: 4945130117761436484, guid: 8741e245d2be4a24cbfd43c528bd887e, type: 3}
       propertyPath: m_Name
       value: MainMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 4945130117761436484, guid: 8741e245d2be4a24cbfd43c528bd887e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5527552966981102006, guid: 8741e245d2be4a24cbfd43c528bd887e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
